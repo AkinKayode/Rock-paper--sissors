@@ -14,9 +14,16 @@ const paper = document.querySelector(".paper").addEventListener('click',function
 const siccors = document.querySelector(".siccors").addEventListener('click',function(){
     game("siccors")
 })
+// Displays messages when som1 Wins
 const playerWins = 'You Win'
 const computerWins = 'Computer Win'
 const draw = 'Draw';
+// Updates Text of Players
+const humanText = document.querySelector('.human')
+const computerText = document.querySelector('.computer')
+
+let humanScore = 0;
+let computerScore = 0;
 
 
 
@@ -29,13 +36,49 @@ function game(human){
 (human === 'siccors' && computer === 'paper') || 
 (human === 'paper' && computer === 'rock')){
     scoreSheet.innerText = playerWins;
+    humanScore ++
+    humanText.innerText = `Player: ${humanScore}`;
 }else{
     scoreSheet.innerText = computerWins;
+    computerScore ++
+    computerText.innerText = `Computer: ${computerScore}`;
+}
+winner()
+}
+function disable(){
+    if(computerScore === 5 || humanScore === 5 ){
+        rock.removeEventListener('click', game);
+        paper.removeEventListener('click', game);
+        siccors.removeEventListener('click', game);
+
+    }
 }
 
+function winner(){
+    if (computerScore === 5){
+        scoreSheet.innerText = 'Computer Won the Game';
+        resetScore()
+        disable()
+
+    }else if(humanScore === 5) {
+        scoreSheet.innerText = "You Won the Game";
+        resetScore()
+       disable()
+    }
+    
 }
 
 
 
 
+
+const reset = document.querySelector('.restart')
+function resetScore(){
+    document.querySelector(".human").innerText = "Player: ";
+    document.querySelector(".computer").innerText = "Computer: ";
+    computerScore = 0;
+    humanScore = 0;
+
+}
+reset.addEventListener('click', resetScore)
 
