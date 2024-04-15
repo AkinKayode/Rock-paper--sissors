@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+.reset {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
