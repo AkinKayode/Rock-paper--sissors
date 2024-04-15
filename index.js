@@ -74,11 +74,11 @@ function winner(){
 
 const reset = document.querySelector('.restart')
 function resetScore(){
-    document.querySelector(".human").innerText = "Player: ";
-    document.querySelector(".computer").innerText = "Computer: ";
+    document.querySelector(".human").innerText = "Player: 0";
+    document.querySelector(".computer").innerText = "Computer: 0";
     computerScore = 0;
     humanScore = 0;
 
 }
-reset.addEventListener('click', resetScore)
+
 
