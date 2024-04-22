@@ -26,7 +26,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 
-
+// rock paper siccors game function
 function game(human){
     const options = ['rock','papers','siccors'];
     const computer = options[Math.floor(Math.random() * options.length)];
